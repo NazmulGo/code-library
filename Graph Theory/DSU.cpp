@@ -6,40 +6,44 @@ typedef long long ll;
 #define endl "\n" 
 #define all(v) v.begin(), v.end()
 #define fr(x, n) for (int i = x; i < n; ++i)
-const int N = 101;
+const int N = 1e5+123;
 
-vll par(N), sz(N, 1);
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
 
-int find_par(ll u) {
-    if(par[u] == u) return u;
+vll par(N), sz(N);
+
+ll find_par(ll u) {
+    if(u == par[u]) return u;
     return par[u] = find_par(par[u]);
 }
 
-void Union(int u, int v) {
-    if(sz[u] < sz[v]) swap(u, v);
+void Union(ll u, ll v) {
+    if(u < v) swap(u, v);
     par[v] = u;
     sz[u] += sz[v];
 }
 
 void solve() {
-    ll n, m; cin >> n >> m;   
-    
-    for(int i=1; i<=n; i++) par[i] = i;
-    
-    while(m--) {
+    ll n, q; cin >> n >> q;
+    for(int i=1; i<=n; i++) par[i] = i, sz[i] = 1;
+    while(q--) {
+        string s; cin >> s;
         ll u, v; cin >> u >> v;
-
-        int u_Rep = find_par( u );
-        int v_Rep = find_par( v );
-
-        if(u_Rep != v_Rep) {
-            Union(u_Rep, v_Rep);
+        
+        ll uR = find_par( u );
+        ll vR = find_par( v );
+        
+        if(s == "union") {
+            if(uR != vR) {
+                Union(uR, vR);
+            }
+        }
+        else if(s == "get") {
+            if(uR == vR) yes;
+            else no;
         }
     }
-    for(int i=1; i<=n; i++) find_par(i); // force path compression
-
-    
-    for(int i=1; i<=n; i++) cout << i << " : " << par[i] << endl;
 }
 
 // --- Try to formulate equations. ---
