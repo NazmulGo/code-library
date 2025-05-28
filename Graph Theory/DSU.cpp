@@ -19,7 +19,7 @@ ll find_par(ll u) {
 }
 
 void Union(ll u, ll v) {
-    if(u < v) swap(u, v);
+    if(sz[u] < sz[v]) swap(u, v);
     par[v] = u;
     sz[u] += sz[v];
 }
