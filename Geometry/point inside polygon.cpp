@@ -41,6 +41,7 @@ void solve() {
             ll c3 = point_location(x3, y3, x4, y4, x1, y1);
             ll c4 = point_location(x3, y3, x4, y4, x2, y2);
 
+            // intersect or not by Location test 
             if(c1 != c2 && c3 != c4) intersect++;
         }
 
