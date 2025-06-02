@@ -6,6 +6,8 @@ ll point_location(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     else return -1; // LEFT
 }
 
+
+// point c is inside of point a and b.
 bool isInside(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     
     ll chk = point_location(x1, y1, x2, y2, x3, y3);  // chk == 0, same Line
