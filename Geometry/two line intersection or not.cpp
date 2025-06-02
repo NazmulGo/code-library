@@ -1,16 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-typedef long double ll;
-#define vll vector<ll>
-#define pll pair<ll, ll>
-#define endl "\n" 
-#define all(v) v.begin(), v.end()
-#define fr(x, n) for (int i = x; i < n; ++i)
-const int N = 2e5+123;
-
-#define yes cout << "YES" << endl
-#define no cout << "NO" << endl
-
 ll point_location(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     ll m1 = (y2-y1) * (x3-x2);
     ll m2 = (x2-x1) * (y3-y2);
@@ -19,7 +6,7 @@ ll point_location(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     else return -1; // LEFT
 }
 
-bool isTouch(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
+bool isInside(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     
     ll chk = point_location(x1, y1, x2, y2, x3, y3);  // chk == 0, same Line
     if(chk == 0) {
@@ -46,16 +33,4 @@ void solve() {
 
     if(p1 || p2 || p3 || p4) yes;
     else no;
-}
-
-// --- Try to formulate equations. ---
-
-int main() {
-    ios_base::sync_with_stdio(0); cin.tie(0); 
-    cout.tie(0);
-
-    ll tc = 1; cin >> tc;
-    while(tc--) {
-        solve();
-    }
 }
