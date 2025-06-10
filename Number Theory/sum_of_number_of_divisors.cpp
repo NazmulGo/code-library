@@ -1,11 +1,11 @@
-ll n; cin >> n;
-ll score = 0;
-ll sq = sqrt(n);
-for(int i=1; i<= sq; i++)
-{
-    ll contri_i = (n/i) - i;
-    score += contri_i;
+// 1 to n all numbers divisors counts sum
+ll SNOD(ll n) {
+    ll score = 0;
+    for(ll i=1; i*i <= n; i++) {
+        ll contri_i = (n/i)-i;
+        score += contri_i;
+    }
+    score * 2;
+    score += sqrtl(n);
+    return score;
 }
-score *= 2;
-score += sq;
-cout << score << endl;
