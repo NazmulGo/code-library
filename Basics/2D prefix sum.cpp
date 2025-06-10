@@ -6,7 +6,7 @@ typedef long long ll;
 #define endl "\n" 
 #define all(v) v.begin(), v.end()
 #define fr(x, n) for (int i = x; i < n; ++i)
-const int N = 2e5+123;
+const int N = 1001;
 
 int a[N][N], pref[N][N];
 void solve() {
