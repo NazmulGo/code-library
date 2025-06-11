@@ -12,7 +12,7 @@ bool isInside(ll x1, ll y1, ll x2, ll y2, ll x3, ll y3) {
     
     ll chk = point_location(x1, y1, x2, y2, x3, y3);  // chk == 0, same Line
     if(chk == 0) {
-        if(x3 >= min(x1, x2) && x3 <= max(x1, x2) && y3 >= min(y1, y2) && y3 <= max(y1, y2)) return true;  // yes inside
+        return (x3 >= min(x1, x2) && x3 <= max(x1, x2) && y3 >= min(y1, y2) && y3 <= max(y1, y2));
     }
     return false;
 }
