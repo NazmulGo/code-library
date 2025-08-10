@@ -5,58 +5,49 @@ typedef long long ll;
 #define pll pair<ll, ll>
 #define endl "\n" 
 #define all(v) v.begin(), v.end()
-const int N = 2e5+123;
-
-// ll go(ll i, ll curW) { 
+const int N = 1e5+5;
+ 
+// int n, x;
+// vector<int> cost, pages;
+ 
+// int go(int i, int curVal) {
 //     if(i == n) return 0;
-//     if(dp[i][curW] != -1) return dp[i][curW];
-//     ll maxi = 0;
-//     if(curW >= weights[i]) {
-//         maxi = max(maxi, go(i+1, curW - weights[i]) + val[i]);
-//         maxi = max(maxi, go(i+1, curW));
-//     }
-//     else {
-//         maxi = max(maxi, go(i+1, curW));
-//     }
-
-//     return dp[i][curW] =  maxi;
+ 
+//     int ans = 0;
+//     ans = max(ans, go(i+1, curVal));
+//     if(curVal >= cost[i]) ans = max(ans, go(i+1, curVal - cost[i]) + pages[i]);
+    
+//     return ans;
 // }
-
+ 
 void solve() {
-    ll n, W; 
-    cin >> n >> W;
-    vll weights(n+2), val(n+2);
-    vector<vll> dp((n+2), vll (W+2));
-
-    for(int i=1; i<=n; i++) {
-        cin >> weights[i] >> val[i];
-    }
-
-    for(int i=0; i<=W; i++) {
-        dp[n+1][i] = 0;
-    }
-
-    for(int i=n; i>=1; i--) {
-        for(int j=0; j<=W; j++) {
-            dp[i][j] = max(dp[i][j], dp[i+1][j]);   // skip weights[i]
-            if(j >= weights[i]) {
-                dp[i][j] = max(dp[i][j], dp[i+1][j-weights[i]] + val[i]); // take weights[i]
-            }
+    int n, x; cin >> n >> x;
+    
+    vector<int> cost(n), pages(n);
+    for(int i=0; i<n; i++) cin >> cost[i];
+    for(int i=0; i<n; i++) cin >> pages[i];
+    
+    int dp[1005][N];
+    for(int i=0; i<=x; i++) dp[n][i] = 0;
+ 
+    for(int i=n-1; i>=0; i--) {
+        for(int j=0; j<=x; j++) {
+            dp[i][j] = dp[i+1][j]; // skip 
+            if(j >= cost[i]) dp[i][j] = max(dp[i][j], dp[i+1][j-cost[i]] + pages[i]); // take
         }
     }
-
-    cout << dp[1][W] << endl;
-
-
+ 
+    cout << dp[0][x] << endl;
+ 
 }
-
+ 
 // --- Try to formulate equations. ---
-
+ 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); 
     cout.tie(0);
-
-    ll tc = 1; //cin >> tc;
+ 
+    ll tc = 1; // cin >> tc;
     while(tc--) {
         solve();
     }
