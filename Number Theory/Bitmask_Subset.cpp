@@ -10,25 +10,23 @@ const int N = 2e5+123;
 void solve() {
     ll n; cin >> n;
     vll v(n);
-    for (ll i = 0; i < n; i++) cin >> v[i];
+    for(int i=0; i<n; i++) cin >> v[i];
 
-    vector<vll> all_subsets;
+    vector<vll> subsets;
 
-    for (ll mask = 0; mask < (1 << n); mask++) {
-        vll subset;
-        for (ll i = 0; i < n; i++) {   // (2 ^ n -1 ) er bitset n ta
-            if (mask & (1 << i)) {
-                subset.push_back(v[i]);
+    for(int mask = 0; mask < (1 << n); mask++) {
+        vll sets;
+        for(int i=0; i<n; i++) {
+            if(mask & (1 << i)) {
+                sets.push_back(v[i]);
             }
         }
-        all_subsets.push_back(subset);
+        subsets.push_back(sets);
     }
 
-    // Print all subsets together
-    for (auto &subset : all_subsets) {
-        cout << "{ ";
-        for (auto x : subset) cout << x << " ";
-        cout << "}\n";
+    for(auto u : subsets) {
+        for(auto x : u) cout << x << " ";
+        cout << endl;
     }
 }
 
@@ -38,7 +36,7 @@ int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); 
     cout.tie(0);
 
-    ll tc = 1; cin >> tc;
+    ll tc = 1; // cin >> tc;
     while(tc--) {
         solve();
     }
