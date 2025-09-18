@@ -1,3 +1,13 @@
+/*
+7
+6 1
+5 1
+5 2
+4 2
+3 4
+6 3
+*/
+
 ll n;
 bool vis[N];
 vector<ll> g[N], ans;
@@ -16,12 +26,12 @@ void dfs(ll u) {
 
 void solve() {
     cin >> n;
-    for(int i=0; i<n-1; i++) {
+    for(int i=1; i<n; i++) {
         ll u, v; cin >> u >> v;
         g[u].push_back(v);
     }
 
-    for(int i=0; i<=5; i++) {
+    for(int i=1; i<=n-1; i++) {
         if(!vis[i]) {
             dfs(i);
         }
