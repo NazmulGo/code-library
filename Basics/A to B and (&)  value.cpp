@@ -22,3 +22,21 @@ ll AtoB_And(ll x, ll y) {
  
     return res;
 }
+
+
+
+//a to b and (&) value (where a <= b).
+ll AtoB_And(ll x, ll y) {
+    ll ans = 0; 
+    int msb_x = MSB_indexll(x);
+    int msb_y = MSB_indexll(y);
+   
+    if (msb_x != msb_y) return 0;
+ 
+    for(int i=msb_x; i>=0; i--) {
+        if(((1LL << i) & x ) != ((1LL << i) & y)) break;
+        if(((1LL << i) & x ) && ((1LL << i) & y)) ans += (1LL << i);
+    }
+ 
+    return ans;
+}
