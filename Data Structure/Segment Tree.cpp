@@ -9,6 +9,16 @@ const int N = 2e5+123;
 
 ll arr[N], tree[4*N];
 
+pll combine(pll &left, pll &right) {
+	pll ans;
+	ans.first = min(left.first, right.first);
+
+	if(left.first == right.first) ans.second = left.second + right.second;
+    else if(left.first < right.first) ans.second = left.second;
+    else ans.second = right.second;
+	return ans;
+}
+
 void build(ll node, ll l, ll r) {
     if(l == r) {
         tree[node] = arr[l];
