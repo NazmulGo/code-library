@@ -6,20 +6,9 @@ typedef long long ll;
 #define endl "\n" 
 #define all(v) v.begin(), v.end()
 
-// tp<int, char, long long> tp1 = {.x = 10, .y = 'f', .z = 1ll};
-// tp<int, int, int> tp2 = {.x = 10, .y = 20, .z = 30};
-
-// cout << tp1.y << " " << tp2.y << endl;
-// template<typename T1, typename T2, typename T3>
-// struct tp {
-//     T1 x;
-//     T2 y;
-//     T3 z;
-// };
-
 template<typename T = int>
 struct binary_index_tree {
-#define LSONE(x) ((x) & -(x))
+	#define LSONE(x) ((x) & -(x))
 
 	int N;
 	vector<T> t;
