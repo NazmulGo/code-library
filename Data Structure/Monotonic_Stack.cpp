@@ -1,6 +1,6 @@
 // 1
 vll NextGreterEle(vll &v) {  
-    // stack design Increasing (Up to Down)
+    // stack decreasing
     ll n = v.size();
     vll ans(n);
     stack<ll> st;
@@ -14,7 +14,7 @@ vll NextGreterEle(vll &v) {
 }
 // 2
 vll NextGreterEleIndex(vll &v) {  
-    // stack design Increasing (Up to Down)
+    // stack decreasing
     ll n = v.size();
     vll ans(n);
     stack<ll> st;
@@ -28,6 +28,7 @@ vll NextGreterEleIndex(vll &v) {
 }
 // 3
 vll NextSmallerEle(vll &v) {  
+    // stack Increasing
    ll n = v.size();
    vll ans(n);
    stack<ll> st;
@@ -41,6 +42,7 @@ vll NextSmallerEle(vll &v) {
 }
 // 4
 vll NextSmallerEleIndx(vll &v) {  
+    // stack Increasing
    ll n = v.size();
    vll ans(n);
    stack<ll> st;
